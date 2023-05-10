@@ -17,7 +17,7 @@
             <button @click="setAutoPlay()">AUTOPLAY {{ (autoplayReference == null) ? 'ON' : 'OFF'}}</button>
             <div class="slider-wrapper" tabindex="0">
 
-                <div class="item" @mouseover="setAutoPlay()" @mouseleave="setAutoPlay()">
+                <div class="item" @mouseover="setAutoPlayOFF()" @mouseleave="setAutoPlayON()">
                     <img :src="`./${slides[currentSlide].image}`" :alt="slides[currentSlide].title" />
                     <div class="text">
                         <h3>{{ slides[currentSlide].title }}</h3>
