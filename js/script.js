@@ -49,17 +49,24 @@ createApp({
             this.currentSlide = i;
         },
         setAutoPlay(){
-            if(this.autoplayReference === null){
-                autoplayReference =setInterval(() => {
-                    this.next()
-                }, 3000);
+            if(this.autoplayReference == null){
+                this.setAutoPlayON();
+            }else{
+                this.setAutoPlayOFF();
             }
+        },
+        setAutoPlayON(){
+            this.autoplayReference = setInterval(() => {
+                this.next()
+            }, 3000);
+        },
+        setAutoPlayOFF(){
+            clearInterval(this.autoplayReference);
+            this.autoplayReference = null;
         }
+    },
+    mounted(){
+        this.setAutoPlay();
     }
-    // mounted: function mounted(){
-    //     setInterval(function(){
-    //         this.next();
-    //     }, 3000)
-    // }
         
 }).mount("#app")

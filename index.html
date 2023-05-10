@@ -14,11 +14,11 @@
     <div id="app">
 
         <div class="container">
-            <button @click="setAutoPlay()">AUTOPLAY</button>
+            <button @click="setAutoPlay()">AUTOPLAY {{ autoplayReference == null ? 'ON' : 'OFF'}}</button>
             <div class="slider-wrapper" tabindex="0">
 
                 <div class="item">
-                    <img :src="`./${slides[currentSlide].image}`" alt="Spiderman" />
+                    <img :src="`./${slides[currentSlide].image}`" :alt="slides[currentSlide].title" />
                     <div class="text">
                         <h3>{{ slides[currentSlide].title }}</h3>
                         <p>
