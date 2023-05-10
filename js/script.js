@@ -32,14 +32,14 @@ createApp({
     },
     methods: {
         prev() {
-            if(this.currentSlide == 0){
+            if(this.currentSlide === 0){
                 this.currentSlide = this.slides.length-1;
             }else{
                 this.currentSlide--;
             }
         },
         next(){
-            if(this.currentSlide == this.slides.length-1){
+            if(this.currentSlide === this.slides.length-1){
                 this.currentSlide = 0;
             }else{
                 this.currentSlide++;
@@ -49,7 +49,7 @@ createApp({
             this.currentSlide = i;
         },
         setAutoPlay(){
-            if(this.autoplayReference == null){
+            if(this.autoplayReference === null){
                 this.setAutoPlayON();
             }else{
                 this.setAutoPlayOFF();
@@ -64,9 +64,5 @@ createApp({
             clearInterval(this.autoplayReference);
             this.autoplayReference = null;
         }
-    },
-    mounted(){
-        this.setAutoPlay();
-    }
-        
+    } 
 }).mount("#app")

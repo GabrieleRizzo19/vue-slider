@@ -14,10 +14,10 @@
     <div id="app">
 
         <div class="container">
-            <button @click="setAutoPlay()">AUTOPLAY {{ autoplayReference == null ? 'ON' : 'OFF'}}</button>
+            <button @click="setAutoPlay()">AUTOPLAY {{ (autoplayReference == null) ? 'ON' : 'OFF'}}</button>
             <div class="slider-wrapper" tabindex="0">
 
-                <div class="item">
+                <div class="item" @mouseover="setAutoPlay()" @mouseleave="setAutoPlay()">
                     <img :src="`./${slides[currentSlide].image}`" :alt="slides[currentSlide].title" />
                     <div class="text">
                         <h3>{{ slides[currentSlide].title }}</h3>
@@ -30,8 +30,8 @@
                 <div class="thumbs">
                     <div class="prev" @click="prev()"></div>
                     <div class="next" @click="next()"></div>
-                    <div v-for="(img,i) of slides" :class="i === currentSlide ? 'thumb active' : 'thumb'">
-                        <img :src="`./${img.image}`" @click="setCurrentSlide(i)" alt="Svezia" />
+                    <div v-for="(img,i) of slides" :class="(i === currentSlide) ? 'thumb active' : 'thumb'">
+                        <img :src="`./${img.image}`" @click="setCurrentSlide(i)" :alt="img.title" />
                     </div>
                 </div>
 
